@@ -62,7 +62,7 @@ class NaiveBayes:
     """ TODO
       'words' is a list of words to classify. Return 'pos' or 'neg' classification.
     """
-    if self.FILTER_STOP_WORDS:
+    if not  self.FILTER_STOP_WORDS:
       words = self.filterStopWords(words)
     priorPos = math.log((1.0*self.numOfPositives)/(self.numOfPositives+self.numOfNegetives))
     priorNeg = math.log(1 - priorPos)
@@ -88,7 +88,7 @@ class NaiveBayes:
      * in the NaiveBayes class.
      * Returns nothing
     """
-    if self.filterStopWords:
+    if not  self.FILTER_STOP_WORDS:
       words = self.filterStopWords(words)
     if(klass == 'pos'):
       self.numOfPositives +=1
